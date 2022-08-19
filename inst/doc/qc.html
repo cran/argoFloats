@@ -12,7 +12,7 @@
 
 <meta name="author" content="Jaimie Harbin (https://orcid.org/0000-0003-3774-3732), Dan Kelley (https://orcid.org/0000-0001-7808-5911) and Clark Richards (https://orcid.org/0000-0002-7833-206X)" />
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-08-19" />
 
 <title>Handling Quality Control Flags and Adjusted Data</title>
 
@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 <style type="text/css">
@@ -335,25 +336,22 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 Data</h1>
 <h4 class="author">Jaimie Harbin (<a href="https://orcid.org/0000-0003-3774-3732" class="uri">https://orcid.org/0000-0003-3774-3732</a>), Dan Kelley (<a href="https://orcid.org/0000-0001-7808-5911" class="uri">https://orcid.org/0000-0001-7808-5911</a>) and Clark
 Richards (<a href="https://orcid.org/0000-0002-7833-206X" class="uri">https://orcid.org/0000-0002-7833-206X</a>)</h4>
-<h4 class="date">2022-02-17</h4>
+<h4 class="date">2022-08-19</h4>
 
 
 <div id="TOC">
 <ul>
-<li><a href="#how-qc-flags-are-set"><span class="toc-section-number">1</span> How QC Flags are set</a></li>
-<li><a href="#handling-flags"><span class="toc-section-number">2</span>
-Handling Flags</a>
+<li><a href="#how-qc-flags-are-set" id="toc-how-qc-flags-are-set"><span class="toc-section-number">1</span> How QC Flags are set</a></li>
+<li><a href="#handling-flags" id="toc-handling-flags"><span class="toc-section-number">2</span> Handling Flags</a>
 <ul>
-<li><a href="#making-qc-plots"><span class="toc-section-number">2.1</span> Making QC Plots</a></li>
-<li><a href="#discovering-which-tests-were-performed"><span class="toc-section-number">2.2</span> Discovering which tests were
+<li><a href="#making-qc-plots" id="toc-making-qc-plots"><span class="toc-section-number">2.1</span> Making QC Plots</a></li>
+<li><a href="#discovering-which-tests-were-performed" id="toc-discovering-which-tests-were-performed"><span class="toc-section-number">2.2</span> Discovering which tests were
 performed</a></li>
-<li><a href="#applying-qc-flags"><span class="toc-section-number">2.3</span> Applying QC flags</a></li>
+<li><a href="#applying-qc-flags" id="toc-applying-qc-flags"><span class="toc-section-number">2.3</span> Applying QC flags</a></li>
 </ul></li>
-<li><a href="#using-adjusted-data"><span class="toc-section-number">3</span> Using Adjusted Data</a></li>
-<li><a href="#answers"><span class="toc-section-number">4</span>
-Answers</a></li>
-<li><a href="#references"><span class="toc-section-number">5</span>
-References</a></li>
+<li><a href="#using-adjusted-data" id="toc-using-adjusted-data"><span class="toc-section-number">3</span> Using Adjusted Data</a></li>
+<li><a href="#answers" id="toc-answers"><span class="toc-section-number">4</span> Answers</a></li>
+<li><a href="#references" id="toc-references"><span class="toc-section-number">5</span> References</a></li>
 </ul>
 </div>
 
@@ -472,9 +470,10 @@ actions, QC Tests performed or QC Tests failed, found in
 <code>historyAction</code> within the metadata slot of an individual
 Argo profile, as read directly with <code>oce::read.argo()</code> or
 indirectly with <code>readProfiles()</code>.</p>
-<p>To analyze the first cycle shown by the <code>plot(...,
-which=&quot;QC&quot;)</code> example, we will use previously defined variables and
-the <code>showQCTests()</code> function as shown below.</p>
+<p>To analyze the first cycle shown by the
+<code>plot(..., which=&quot;QC&quot;)</code> example, we will use previously
+defined variables and the <code>showQCTests()</code> function as shown
+below.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>index2 <span class="ot">&lt;-</span> <span class="fu">subset</span>(index1, <span class="at">cycle=</span><span class="st">&quot;124&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>profiles2 <span class="ot">&lt;-</span> <span class="fu">getProfiles</span>(index2)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>argos2 <span class="ot">&lt;-</span> <span class="fu">readProfiles</span>(profiles2)</span>
@@ -739,7 +738,8 @@ Stephen Loch, Claudia Schmid, and Roger Goldsmith. Argo User’s Manual
 V3.3. Ifremer, 2019. </p></li>
 <li><p>Wong, Annie, Robert Keeley, Thierry Carval, and Argo Data
 Management Team. “Argo Quality Control Manual for CTD and Trajectory
-Data,” January 1, 2020. <a href="https://archimer.ifremer.fr/doc/00228/33951/" class="uri">https://archimer.ifremer.fr/doc/00228/33951/</a>.</p></li>
+Data,” January 1, 2020.
+<code>https://archimer.ifremer.fr/doc/00228/33951/</code></p></li>
 </ol>
 </div>
 
