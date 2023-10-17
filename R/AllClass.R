@@ -60,8 +60,12 @@
 #' \doi{10.3389/fmars.2021.635922}
 #'
 #' @importFrom methods new
-#' @name argoFloats-package
+#' @name argoFloats
 #' @docType package
+#' @keywords internal
+"_PACKAGE"
+## usethis namespace: start
+## usethis namespace: end
 NULL
 
 
@@ -454,7 +458,7 @@ setMethod(f="[[",
                       argoFloatsDebug(debug, "i=\"", i, "\" is in data\n")
                       return(if (missing(j)) x@data[[i]] else x@data[[i]][[j]])
                   } else if (length(i) == 1 && i == "cycle") {
-                      argoFloatsDebug(debug, "i=\"", i, "\" is detected specifically\n")
+                      argoFloatsDebug(debug, "i=\"", i, "\"\n", sep="")
                       cycle <- gsub("^.*[/\\\\][A-Z]*[0-9]*_([0-9]{3,4})[A-Z]*\\.nc$", "\\1", unlist(x[["filename"]]))
                       return(as.vector(if (missing(j)) cycle else cycle[j]))
                   } else if (length(i) == 1 && i == "length") {

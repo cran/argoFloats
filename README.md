@@ -8,12 +8,17 @@
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](http://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
-
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/argoFloats)](https://cran.r-project.org/package=argoFloats)
-
 [![R build
 status](https://github.com/ArgoCanada/argoFloats/workflows/R-CMD-check/badge.svg)](https://github.com/ArgoCanada/argoFloats/actions)
-
+![RStudio CRAN mirror
+downloads](https://cranlogs.r-pkg.org/badges/last-month/argoFloats)
+![RStudio CRAN mirror
+downloads](https://cranlogs.r-pkg.org/badges/last-week/argoFloats)
+![RStudio CRAN mirror
+downloads](https://cranlogs.r-pkg.org/badges/last-day/argoFloats)
+![RStudio CRAN mirror
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/argoFloats)
 [![codecov](https://codecov.io/gh/ArgoCanada/argoFloats/branch/develop/graph/badge.svg)](https://app.codecov.io/gh/ArgoCanada/argoFloats)
 
 <!-- badges: end -->
@@ -101,8 +106,8 @@ library(oce)
 indexAll <- getIndex()
 ## 2. Narrow to a 30km-radius circle centred on Abaco Island, The Bahamas.
 index <- subset(indexAll,
-                circle=list(longitude=-77.06,latitude=26.54,radius=30))
-#> Kept 41 cycles (0.00153%)
+    circle=list(longitude=-77.06,latitude=26.54,radius=30))
+#> Kept 41 cycles (0.00144%)
 ## 3. Get NetCDF files for these profiles, saving to ~/data/argo by default.
 profiles  <- getProfiles(index)
 ## 4. Read the NetCDF files.
@@ -121,7 +126,6 @@ argos <- readProfiles(profiles)
 #>     3 7 13
 ## 5. Examine QC flags, and set questionable data to NA.
 argosClean <- applyQC(argos)
-oldpar <- par(no.readonly=TRUE)
 par(mfrow=c(1, 2))                     # want two-panel plot
 par(mar=c(3.5, 2.0, 2.0, 2.0))         # maps do not get axis names
 par(mgp=c(2,0.7,0))                    # tighten axes
@@ -134,8 +138,4 @@ par(mar=c(3.5, 3.5, 2.0, 1.0))         # increase left margin for name
 plot(argosClean, which="TS")
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="80%" />
-
-``` r
-par(oldpar)
-```
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="80%" />

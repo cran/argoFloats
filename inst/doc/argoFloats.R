@@ -1,7 +1,7 @@
-## ---- echo=FALSE--------------------------------------------------------------
+## ----echo=FALSE---------------------------------------------------------------
 knitr::opts_chunk$set(collapse=TRUE, comment="#>")
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  library(devtools)
 #  install_github("ArgoCanada/argoFloats", ref="develop")
 
@@ -13,10 +13,10 @@ library(argoFloats)
 ## -----------------------------------------------------------------------------
 data("index")
 
-## ---- fig.cap="Figure 2: Built in index demonstrating Argo profiling floats within 200 km of Bahamas."----
+## ----fig.cap="Figure 2: Built in index demonstrating Argo profiling floats within 200 km of Bahamas."----
 plot(index, bathymetry=FALSE)          # also, try using bathymetry=TRUE
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  index
 
 ## ----eval=FALSE---------------------------------------------------------------
@@ -26,7 +26,7 @@ plot(index, bathymetry=FALSE)          # also, try using bathymetry=TRUE
 data(index)
 ai <- index
 
-## ---- message=FALSE, fig.cap="Figure 3: 50 km radius and polygon subset of Argo profiling floats found off the coast of Bahamas", warning=FALSE----
+## ----message=FALSE, fig.cap="Figure 3: 50 km radius and polygon subset of Argo profiling floats found off the coast of Bahamas", warning=FALSE----
 # Subsetting by circle
 aiCircle <- subset(ai, circle=list(longitude=-77.5, latitude=27.5, radius=50))
 # Subsetting by polygon
@@ -66,7 +66,13 @@ plot(CP, bathymetry=FALSE)             # also, try using bathymetry=TRUE
 #  argosClean <- applyQC(argos)
 #  plot(argosClean, which="profile", type="p")
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
+#  index <- getIndex("~/data/argo/ar_index_global_prof.txt.gz", server=NULL)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  index <- getIndex("~/data/argo/ar_index_global_prof.rda", server=NULL)
+
+## ----eval=FALSE---------------------------------------------------------------
 #  library(argoFloats)
 #  ai <- getIndex()
 #  # Subset by circle
@@ -87,7 +93,7 @@ plot(CP, bathymetry=FALSE)             # also, try using bathymetry=TRUE
 #  # Plot data
 #  plot(index6, bathymetry=FALSE)             # also, try using bathymetry=TRUE
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  library(argoFloats)
 #  ai <- getIndex("synthetic")
 #  sub <- subset(ai, 1:2) # To subset for profiles
